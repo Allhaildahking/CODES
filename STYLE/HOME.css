@@ -1,0 +1,535 @@
+/* Reset basic margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: white;
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+/* Loader Styles */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Dark background */
+    z-index: 10; /* Make sure it's on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    animation: loaderAnimation 0.5s infinite alternate;
+    margin: 0 5px;
+}
+
+@keyframes loaderAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Navigation bar */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3; /* Ensures the nav stays on top of everything */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 15px 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.0); /* Adds a slight hover effect */
+    border-radius: 5px;
+}
+
+/* Video background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(8px); /* Blurs the video background */
+    transform: scale(1.1); /* Slightly scales up the video */
+}
+
+/* Content (centered name and profile picture) */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.content p {
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #fff; /* White border around the image */
+}
+
+/* Button Styles */
+button {
+    width: 10em;
+    position: relative;
+    height: 3.5em;
+    border: 3px ridge #149CEA;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #212121;
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+button::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #212121;
+    transition: 0.5s;
+}
+
+button:hover::before, button:hover::after {
+    transform: scale(0);
+}
+
+button:hover {
+    box-shadow: inset 0px 0px 25px #1479EA;
+}
+
+/* Social Links in Contact Section */
+.social-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    color: #00aced; /* Twitter blue color */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .content h1 {
+        font-size: 3.5rem; /* Adjusted for larger screens */
+    }
+
+    .content p {
+        font-size: 1.3rem; /* Adjusted for larger screens */
+    }
+}
+
+@media (max-width: 992px) {
+    nav ul {
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9); /* Darker background for mobile */
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .content h1 {
+        font-size: 3rem; /* Adjusted for medium screens */
+    }
+
+    .content p {
+        font-size: 1.2rem; /* Adjusted for medium screens */
+    }
+
+    .profile-pic {
+        width: 120px; /* Adjusted for medium screens */
+        height: 120px; /* Adjusted for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9); /* Darker background for mobile */
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .content h1 {
+        font-size: 2.5rem; /* Smaller font size for mobile */
+    }
+
+    .content p {
+        font-size: 1.1rem; /* Smaller font size for mobile */
+    }
+
+    .profile-pic {
+        width: 100px; /* Smaller profile picture for mobile */
+        height: 100px; /* Smaller profile picture for mobile */
+    }
+}
+/* Reset basic margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: white;
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+/* Loader Styles */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Dark background */
+    z-index: 10; /* Make sure it's on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    animation: loaderAnimation 0.5s infinite alternate;
+    margin: 0 5px;
+}
+
+@keyframes loaderAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Navigation bar */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3; /* Ensures the nav stays on top of everything */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 15px 0;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px 16px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.2); /* Adds a slight hover effect */
+    border-radius: 5px;
+}
+
+/* Video background */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(8px); /* Blurs the video background */
+    transform: scale(1.1); /* Slightly scales up the video */
+}
+
+/* Content (centered name and profile picture) */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.content h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.content p {
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid #fff; /* White border around the image */
+}
+
+/* Button Styles */
+button {
+    width: 10em;
+    position: relative;
+    height: 3.5em;
+    border: 3px ridge #149CEA;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #212121;
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+button::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #212121;
+    transition: 0.5s;
+}
+
+button:hover::before, button:hover::after {
+    transform: scale(0);
+}
+
+button:hover {
+    box-shadow: inset 0px 0px 25px #1479EA;
+}
+
+/* Social Links in Footer Section */
+footer .social-links {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer .social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+}
+
+footer .social-links a:hover {
+    color: #00aced; /* Twitter blue color */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .content h1 {
+        font-size: 3.5rem; /* Adjusted for larger screens */
+    }
+
+    .content p {
+        font-size: 1.3rem; /* Adjusted for larger screens */
+    }
+}
+
+@media (max-width: 992px) {
+    nav ul {
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9); /* Darker background for mobile */
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .content h1 {
+        font-size: 3rem; /* Adjusted for medium screens */
+    }
+
+    .content p {
+        font-size: 1.2rem; /* Adjusted for medium screens */
+    }
+
+    .profile-pic {
+        width: 120px; /* Adjusted for medium screens */
+        height: 120px; /* Adjusted for medium screens */
+    }
+
+    /* Footer social links */
+    footer .social-links a {
+        font-size: 1.1rem; /* Adjusted link size for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9); /* Darker background for mobile */
+        padding: 20px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .content h1 {
+        font-size: 2.5rem; /* Smaller font size for mobile */
+    }
+
+    .content p {
+        font-size: 1.1rem; /* Smaller font size for mobile */
+    }
+
+    .profile-pic {
+        width: 100px; /* Smaller profile picture for mobile */
+        height: 100px; /* Smaller profile picture for mobile */
+    }
+
+    /* Footer social links */
+    footer .social-links a {
+        font-size: 1rem; /* Smaller link size for mobile */
+    }
+}
+

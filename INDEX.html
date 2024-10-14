@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Destiny Growrich </title>
+    <link rel="stylesheet" href="style/home.css">
+    <style>
+        /* Ensure the body takes up the full height minus 1 inch */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: calc(100vh - 1in); /* Reduces page height by 1 inch */
+        }
+
+        /* Ensure content fills the page, and footer stays at the bottom */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        .content {
+            flex: 1;
+            text-align: center;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.0); /* Transparent black */
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social media icons styling */
+        .social-links img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Loader -->
+        <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+
+        <!-- Navigation bar -->
+        <header>
+            <nav>
+                <ul>
+                    <li><button onclick="location.href='#home'">Home</button></li>
+                    <li><button onclick="location.href='about.HTML'">About</button></li>
+                    <li><button onclick="location.href='#projects'">Projects</button></li>
+                    <li><button onclick="location.href='#contact'">Contact</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Video Background with Fallback Image -->
+        <div class="video-background">
+            <video id="myVideo" autoplay muted loop>
+                <source src="asset/video1.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <img id="fallbackImage" src="asset/fallback-image.jpg" alt="Fallback Image" style="display: none;">
+        </div>
+
+        <!-- Content with profile picture and title -->
+        <div class="content">
+            <img src="asset/IMG1.jpeg" alt="Destiny Growrich" class="profile-pic">
+            <h1>Destiny Growrich</h1>
+            <p>Python Developer</p>
+        </div>
+        </div>
+
+        <!-- Footer Section with Social Links and Icons -->
+        <footer>
+            <div class="social-links">
+                <a href="https://www.facebook.com/dahking.growrich?mibextid=ZbWKwL" target="_blank">
+                    <img src="asset/facebook-icon.png" alt="Facebook Icon"> Facebook
+                </a>
+                <a href="https://github.com/allhaildahking" target="_blank">
+                    <img src="asset/github-icon.png" alt="GitHub Icon"> GitHub
+                </a>
+                <a href="https://x.com/allhail_dahking?s=09" target="_blank">
+                    <img src="asset/twitter-icon.png" alt="Twitter Icon"> X (Twitter)
+                </a>
+                <a href="https://www.instagram.com/allhail_dahking?igsh=MTgwcm1xZDFubW5ldA==" target="_blank">
+                    <img src="asset/instagram-icon.png" alt="Instagram Icon"> Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/destiny-growrich-b509812a8" target="_blank">
+                    <img src="asset/linkedin-icon.png" alt="LinkedIn Icon"> LinkedIn
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const loader = document.querySelector('.loader');
+            loader.style.display = 'none'; // Hide the loader
+        };
+
+        // Fallback functionality for the video
+        const video = document.getElementById('myVideo');
+        const fallbackImage = document.getElementById('fallbackImage');
+
+        video.onerror = function() {
+            video.style.display = 'none';
+            fallbackImage.style.display = 'block';
+        };
+    </script>
+</body>
+</html>
